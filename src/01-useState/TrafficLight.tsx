@@ -1,18 +1,22 @@
 import { useState } from "react";
 
 
-const color = {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const colors = {
     'red': 'bg-red-500 animate-pulse',
     'yellow': 'bg-yellow-500 animate-pulse',
     'green': 'bg-green-500 animate-pulse'
 }
 
+// type TrafficLightColor = 'red' | 'yellow' | 'green';
+
+type TrafficLightColor = keyof typeof colors;
+
 export const TrafficLight = () => {
-  const [light, setLight] = useState('red');
+  const [light, setLight] = useState<TrafficLightColor>('red');
 
-  const handleColorChange = (color) => {
-
-    setLight( (prev) => {
+  const handleColorChange = (color: TrafficLightColor) => {
+      setLight( (prev) => {
       console.log(prev);
       return color;
     });
@@ -21,9 +25,9 @@ export const TrafficLight = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-800 flex items-center justify-center p-4">
       <div className="flex flex-col items-center space-y-8">
-        <div className={`w-32 h-32 ${ light === 'red' ? color[light] : 'bg-red-500'} rounded-full`}></div>
-        <div className={`w-32 h-32 ${ light === 'yellow' ? color[light] : 'bg-yellow-500'} rounded-full`}></div>
-        <div className={`w-32 h-32 ${ light === 'green' ? color[light] : 'bg-green-500' } rounded-full`}></div>
+        <div className={`w-32 h-32 ${ light === 'red' ? colors[light] : 'bg-red-500'} rounded-full`}></div>
+        <div className={`w-32 h-32 ${ light === 'yellow' ? colors[light] : 'bg-yellow-500'} rounded-full`}></div>
+        <div className={`w-32 h-32 ${ light === 'green' ? colors[light] : 'bg-green-500' } rounded-full`}></div>
 
         {/* Botón para cambiar el estado de la luz */}
         <div className="flex gap-2">
