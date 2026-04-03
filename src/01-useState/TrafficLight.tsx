@@ -1,12 +1,13 @@
 import { useState } from "react";
 
-export const TrafficLight = () => {
 
-  const color = {
+const color = {
     'red': 'bg-red-500 animate-pulse',
     'yellow': 'bg-yellow-500 animate-pulse',
     'green': 'bg-green-500 animate-pulse'
-  }
+}
+
+export const TrafficLight = () => {
   const [light, setLight] = useState('red');
 
   const handleColorChange = (color) => {
@@ -28,17 +29,17 @@ export const TrafficLight = () => {
         <div className="flex gap-2">
           <button
             className="bg-red-500 text-white px-4 py-2 rounded-md cursor-pointer"
-            onClick={ handleColorChange}>
+            onClick={ () => handleColorChange('red')}>
             Rojo
           </button>
           <button
             className="bg-yellow-500 text-white px-4 py-2 rounded-md cursor-pointer"
-            onClick={ handleColorChange }>
+            onClick={ () => handleColorChange('yellow') }>
             Amarillo
           </button>
           <button
             className="bg-green-500 text-white px-4 py-2 rounded-md cursor-pointer"
-            onClick={ handleColorChange }>
+            onClick={ () => handleColorChange('green') }>
             Verde
           </button>
         </div>
