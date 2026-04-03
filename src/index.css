@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 .bg-gradient {
   background-image: linear-gradient(to bottom right, #0f172a, #111827, #0f172a);
   min-height: 100vh;
